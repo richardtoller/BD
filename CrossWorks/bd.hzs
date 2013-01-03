@@ -1,0 +1,45 @@
+<!DOCTYPE CrossStudio_for_ARM_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <ExecutionProfileWindow/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="bd" name="unnamed" />
+  <ProjectSessionItem path="bd;bd" name="unnamed" />
+  <ProjectSessionItem path="bd;bd;Source Files" name="unnamed" />
+  <ProjectSessionItem path="bd;bd;Source Files;User" name="unnamed" />
+  <ProjectSessionItem path="bd;bd;Source Files;User;inc" name="unnamed" />
+  <ProjectSessionItem path="bd;bd;Source Files;User;src" name="unnamed" />
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" />
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="16" debugPath="/media/data_disk/STM32/BD/src/main.c" y="602" path="/media/data_disk/STM32/BD/src/main.c" left="0" selected="1" name="unnamed" top="199" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="29" debugPath="/home/richard/.rowley_associates_limited/CrossWorks for ARM/packages/targets/STM32/include/stm32l1xx.h" y="6308" path="/home/richard/.rowley_associates_limited/CrossWorks for ARM/packages/targets/STM32/include/stm32l1xx.h" left="0" selected="0" name="unnamed" top="6302" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/media/data_disk/STM32/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval.h" y="34" path="/media/data_disk/STM32/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval.h" left="0" selected="0" name="unnamed" top="4" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="35" debugPath="/media/data_disk/STM32/BD/inc/main.h" y="60" path="/media/data_disk/STM32/BD/inc/main.h" left="0" selected="0" name="unnamed" top="35" />
+ </Files>
+ <ARMCrossStudioWindow activeProject="bd" autoConnectTarget="" debugSearchFileMap="" fileDialogInitialDirectory="/media/data_disk/STM32/BD/inc" fileDialogDefaultFilter="*.h" autoConnectCapabilities="0" debugSearchPath="" buildConfiguration="THUMB Debug" />
+</session>
