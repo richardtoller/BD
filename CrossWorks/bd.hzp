@@ -15,9 +15,18 @@
         </folder>
         <folder Name="src" file_name="">
           <file file_name="../src/main.c"/>
+          <file file_name="../src/system_stm32l1xx.c"/>
+          <file file_name="../src/stm32l1xx_it.c"/>
         </folder>
       </folder>
-      <folder Name="STM32L152D_EVAL" filter="*.c;*.h;*.cpp" path="../Utilities/STM32_EVAL/STM32L152D_EVAL" recurse="Yes"/>
+      <folder Name="STM32L152D_EVAL" filter="*.c;*.h;*.cpp" path="../Utilities/STM32_EVAL/STM32L152D_EVAL" recurse="Yes">
+        <file file_name="../Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_i2c_ee.c">
+          <configuration Name="THUMB Debug" build_exclude_from_build="Yes"/>
+        </file>
+        <file file_name="../Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_spi_ee.c">
+          <configuration Name="THUMB Debug" build_exclude_from_build="No"/>
+        </file>
+      </folder>
       <folder Name="StdPeriph_Driver" filter="*.c;*.h;*.cpp" path="../Libraries/STM32L1xx_StdPeriph_Driver" recurse="Yes"/>
     </folder>
     <folder Name="System Files">

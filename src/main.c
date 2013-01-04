@@ -78,16 +78,34 @@ static __IO uint32_t StandbyModeStatus = 0x00;
   * @{
   */
 
+/* defines for joystick navigation */
+#define  MAX_MENU_LEVELS 4
+#define  NOKEY  0
+#define  SEL    1
+#define  RIGHT  2
+#define  LEFT   3
+#define  UP     4
+#define  DOWN   5
+
 /**
   * @brief  Main program.
   * @param  None
   * @retval None
   */
-
- int main(void)
+int main(void)
 {
   /* Initialize the Demo */
   Demo_Init();
+
+
+  /* Set the LCD Back Color */
+  LCD_SetBackColor(LCD_COLOR_BLUE);
+  /* Set the LCD Text Color */
+  LCD_SetTextColor(LCD_COLOR_WHITE);
+  LCD_DisplayStringLine(LCD_LINE_0, "      Hello         ");
+
+  while (1);
+
  /* Write block of 512 bytes on address 0 */
 #if 0  
   /* The DOWNStatus, SELStatus or UPStatus will be set in stm32l1xx_it.c 
@@ -203,10 +221,6 @@ void Demo_Init(void)
   /* Clear the LCD */
   LCD_Clear(LCD_COLOR_WHITE);
 
-  if(StandbyModeStatus == 0x01)
-  {
-    IDD_Measurement_DisplayStandby();
-  }
   
   /*!< LSE Enable */
   RCC_LSEConfig(RCC_LSE_ON);
@@ -246,13 +260,10 @@ void Demo_Init(void)
   Demo_CheckBitmapFilesStatus(); 
   
   /* Display the STM32 introduction */
-  Menu_STM32Intro();
+  //Menu_STM32Intro();
   
   /* Clear the LCD */
   LCD_Clear(LCD_COLOR_WHITE);
-
-  /* Initialize the Calendar */
-  Calendar_Init();
 
   /* Enable Leds toggling */
   Demo_LedShow(ENABLE);
@@ -264,14 +275,14 @@ void Demo_Init(void)
   LCD_SetTextColor(LCD_COLOR_WHITE);
 
   /* Initialize the Menu */
-  Menu_Init();
+ // Menu_Init();
 
 
   /* Reset the StandbyModeStatus */
   StandbyModeStatus = 0x00;
    
   /* Display the main menu icons */
-  Menu_ShowMenuIcons();
+  //Menu_ShowMenuIcons();
 }
 
 /**
@@ -702,7 +713,10 @@ uint32_t Demo_Get_LedShowStatus(void)
 {
   return LedShowStatus;
 }
-
+int Menu_CheckBitmapFiles()
+{
+  return 0;
+}
 /**
   * @brief  Checks the bitmap files availability and display a warning
   *         message if these files doesn't exit.
