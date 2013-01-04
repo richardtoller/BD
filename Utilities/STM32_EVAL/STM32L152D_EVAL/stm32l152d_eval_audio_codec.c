@@ -450,6 +450,7 @@ uint32_t EVAL_AUDIO_Mute(uint32_t Cmd)
   */
 static void Audio_MAL_IRQHandler(void)
 {
+
 #ifndef AUDIO_MAL_MODE_NORMAL
   uint16_t *pAddr = (uint16_t *)CurrentPos;
   uint32_t Size = AudioRemSize;
@@ -492,7 +493,7 @@ static void Audio_MAL_IRQHandler(void)
       
       /* Manage the remaining file size and new address offset: This function 
       should be coded by user (its prototype is already declared in stm32l152d_eval_audio_codec.h) */
-      EVAL_AUDIO_TransferComplete_CallBack((uint32_t)CurrentPos, 0);
+     // EVAL_AUDIO_TransferComplete_CallBack((uint32_t)CurrentPos, 0);
     }
     
 #elif defined(AUDIO_MAL_MODE_CIRCULAR)
@@ -551,7 +552,7 @@ void Audio_MAL_I2S_IRQHandler(void)
   */
 void Audio_I2S_IRQHandler(void)
 {
-  EVAL_Audio_I2S_IRQHandler();
+  //EVAL_Audio_I2S_IRQHandler();
 }
 
 /*==============================================================================
