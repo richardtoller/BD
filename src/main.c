@@ -25,36 +25,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/** @addtogroup STM32L152D_EVAL_Demo
-  * @{
-  */
-
-/** @defgroup MAIN
-  * @brief    Main program body
-  * @{
-  */
-
-/** @defgroup MAIN_Private_Types
-  * @{
-  */
-/**
-  * @}
-  */
-
-/** @defgroup MAIN_Private_Defines
-  * @{
-  */
-
-/**
-  * @}
-  */
-
-/** @defgroup MAIN_Private_Macros
-  * @{
-  */
-/**
-  * @}
-  */
 
 /** @defgroup MAIN_Private_Variables
   * @{
@@ -63,13 +33,27 @@ static __IO uint32_t TimingDelay = 0;
 static __IO uint32_t LedShowStatus = 0;
 static __IO uint32_t DOWNStatus = 0x00, UPStatus = 0x00, SELStatus = 0x00;
 static __IO uint32_t StandbyModeStatus = 0x00;
+
+/* ADC */
+ADC_InitTypeDef ADC_InitStructure;
+DMA_InitTypeDef DMA_InitStructure;
+GPIO_InitTypeDef GPIO_InitStructure;
+__IO uint16_t ADC_ConvertedValue[5];
+TIM_TimeBaseInitTypeDef   TIM_TimeBaseStructure;
+NVIC_InitTypeDef          NVIC_InitStructure;
+
 /**
   * @}
   */
 
+int recording = 0;
+
 /** @defgroup MAIN_Private_FunctionPrototypes
   * @{
   */
+void ADC_DMA_Config(void);
+void TIM2_Config(void);
+
 /**
   * @}
   */
@@ -87,6 +71,9 @@ static __IO uint32_t StandbyModeStatus = 0x00;
 #define  UP     4
 #define  DOWN   5
 
+/* ADC */
+#define ADC1_DR_ADDRESS    ((uint32_t)0x40012458)
+
 /**
   * @brief  Main program.
   * @param  None
@@ -94,17 +81,65 @@ static __IO uint32_t StandbyModeStatus = 0x00;
   */
 int main(void)
 {
+  char str[] = "000000";
+  
   /* Initialize the Demo */
   Demo_Init();
 
+  // configure sel button */
+  STM_EVAL_PBInit(BUTTON_SEL,BUTTON_MODE_EXTI); 
 
   /* Set the LCD Back Color */
   LCD_SetBackColor(LCD_COLOR_BLUE);
   /* Set the LCD Text Color */
   LCD_SetTextColor(LCD_COLOR_WHITE);
-  LCD_DisplayStringLine(LCD_LINE_0, "      Hello         ");
+  LCD_DisplayStringLine(LCD_LINE_0, "       ADC          ");
 
-  while (1);
+
+  /* ADC1 channel18 configuration using DMA1 channel1 */
+  ADC_DMA_Config();
+
+  /* TIM2 Configuration */
+  //TIM2_Config();
+  STM_EVAL_LEDOff(LED1);
+  STM_EVAL_LEDOff(LED2);
+  STM_EVAL_LEDOff(LED3);
+  STM_EVAL_LEDOff(LED4);
+
+  while (1)
+  {
+    sprintf(str, "%d     ", ADC_ConvertedValue[0]);
+    LCD_DisplayStringLine(LCD_LINE_1, str);
+
+    sprintf(str, "%d     ", ADC_ConvertedValue[1]);
+    LCD_DisplayStringLine(LCD_LINE_2, str);
+
+    sprintf(str, "%d     ", ADC_ConvertedValue[2]);
+    LCD_DisplayStringLine(LCD_LINE_3, str);
+
+    sprintf(str, "%d     ", ADC_ConvertedValue[3]);
+    LCD_DisplayStringLine(LCD_LINE_4, str);
+
+    sprintf(str, "%d     ", ADC_ConvertedValue[4]);
+    LCD_DisplayStringLine(LCD_LINE_5, str);
+
+    if (SELStatus == 1)
+    {
+      if (recording == 0) 
+      {
+        recording = 1; 
+        STM_EVAL_LEDOn(LED1);
+      }
+      else if (recording == 1)
+      {
+        recording = 0; 
+        STM_EVAL_LEDOff(LED1);
+      }
+      SELStatus = 0;
+    }
+    
+  };
+
 
  /* Write block of 512 bytes on address 0 */
 #if 0  
@@ -150,6 +185,86 @@ int main(void)
 }
 
 /**
+  * @brief  Configure the ADC1 channel18 using DMA channel1.
+  */
+void ADC_DMA_Config(void)
+{
+  /*------------------------ DMA1 configuration ------------------------------*/
+  /* Enable DMA1 clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+  /* DMA1 channel1 configuration */
+  DMA_DeInit(DMA1_Channel1);
+  DMA_InitStructure.DMA_PeripheralBaseAddr = ADC1_DR_ADDRESS;
+  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)&ADC_ConvertedValue[0];
+  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+  DMA_InitStructure.DMA_BufferSize = 5;
+  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
+  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
+  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
+  DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
+  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+  DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
+  DMA_Init(DMA1_Channel1, &DMA_InitStructure);
+  
+  /* Enable DMA1 channel1 */
+  DMA_Cmd(DMA1_Channel1, ENABLE);
+
+  /*----------------- ADC1 configuration with DMA enabled --------------------*/
+  /* Enable the HSI oscillator */
+  RCC_HSICmd(ENABLE);
+
+  /* Enable GPIOF clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOF, ENABLE);
+  /* Configure PF.10 (ADC Channel31) in analog mode */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  GPIO_Init(GPIOC, &GPIO_InitStructure);  
+
+  /* Check that HSI oscillator is ready */
+  while(RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
+
+  /* Enable ADC1 clock */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+
+  /* ADC1 DeInit */  
+  ADC_DeInit(ADC1);
+
+  /* ADC1 configuration */
+  ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+  ADC_InitStructure.ADC_ScanConvMode = ENABLE;
+  ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+  ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_Falling;
+  ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T2_TRGO;
+  ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+  ADC_InitStructure.ADC_NbrOfConversion = 1;
+  ADC_Init(ADC1, &ADC_InitStructure);
+
+  /* ADC1 regular channel31 configuration */ 
+  ADC_RegularChannelConfig(ADC1, ADC_Channel_31, 1, ADC_SampleTime_4Cycles);
+
+  /* Enable the request after last transfer for DMA Circular mode */
+  ADC_DMARequestAfterLastTransferCmd(ADC1, ENABLE);
+  
+  /* Enable ADC1 DMA */
+  ADC_DMACmd(ADC1, ENABLE);
+  
+  /* Enable ADC1 */
+  ADC_Cmd(ADC1, ENABLE);
+
+  /* Wait until the ADC1 is ready */
+  while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET)
+  {
+  }
+
+  /* Start ADC1 Software Conversion */ 
+  ADC_SoftwareStartConv(ADC1);
+}
+
+
+
+/**
   * @brief  Initializes the demonstration application.
   * @param  None
   * @retval None
@@ -160,7 +275,7 @@ void Demo_Init(void)
   FLASH_ClearFlag(FLASH_FLAG_EOP|FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | 
                   FLASH_FLAG_SIZERR | FLASH_FLAG_OPTVERR | FLASH_FLAG_OPTVERRUSR);
 
-  /* Check BOR Level */  
+  /* Check BOR (Brown-out reset) Level */  
   if ((FLASH_OB_GetBOR() & 0x0F) != OB_BOR_OFF)
   {
     /* Unlocks the option bytes block access */
@@ -197,8 +312,9 @@ void Demo_Init(void)
   /* Enable GPIOA, GPIOB, GPIOC, GPIOD, GPIOE and AFIO clocks */
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB |
                         RCC_AHBPeriph_GPIOC | RCC_AHBPeriph_GPIOD |
-                        RCC_AHBPeriph_GPIOE | RCC_AHBPeriph_GPIOG |
-                        RCC_AHBPeriph_GPIOH | RCC_AHBPeriph_GPIOF, ENABLE);
+                        RCC_AHBPeriph_GPIOE | RCC_AHBPeriph_GPIOF |
+                        RCC_AHBPeriph_GPIOG | RCC_AHBPeriph_GPIOH,
+                        ENABLE);
 
   /* SYSCFG and ADC1 Periph clock enable */
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG | RCC_APB2Periph_ADC1 , ENABLE);
@@ -209,10 +325,8 @@ void Demo_Init(void)
   /* TIM6, TIM2 and DAC clocks enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6 | RCC_APB1Periph_TIM2 | RCC_APB1Periph_TIM5 | RCC_APB1Periph_DAC, ENABLE);
   
-  
   /* TIM3 and TIM4 clocks enable for wave recorder demo */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3 | RCC_APB1Periph_TIM4 , ENABLE);
-  
 
   /*------------------- Resources Initialization -----------------------------*/
   /* Initialize the LCD */
@@ -223,6 +337,7 @@ void Demo_Init(void)
 
   
   /*!< LSE Enable */
+  /* Low speed external oscillator */
   RCC_LSEConfig(RCC_LSE_ON);
 
   /*!< Wait till LSE is ready */
@@ -231,7 +346,6 @@ void Demo_Init(void)
 
   /*!< LCD Clock Source Selection */
   RCC_RTCCLKConfig(RCC_RTCCLKSource_LSE);
-
 
   /* GPIO Configuration */
   Demo_GPIOConfig();
@@ -283,6 +397,53 @@ void Demo_Init(void)
    
   /* Display the main menu icons */
   //Menu_ShowMenuIcons();
+}
+
+/**
+  * @brief  Configures TIM2.
+  * @param  None
+  * @retval None
+  */
+void TIM2_Config(void)
+{
+
+  TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+  /* Enable TIM2 clock */
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+  TIM_DeInit(TIM2);
+  TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+  /* Time base configuration 500ms */
+  TIM_TimeBaseStructure.TIM_Prescaler = 1000;       
+  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  
+  TIM_TimeBaseStructure.TIM_Period = 0x80;         
+  TIM_TimeBaseStructure.TIM_ClockDivision = 0x0;    
+  TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+
+
+  /* Channel 1, 2, 3 and 4 Configuration in Timing mode */
+  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
+  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+  TIM_OCInitStructure.TIM_Pulse = 0x0;
+
+  TIM_OC1Init(TIM2, &TIM_OCInitStructure);
+
+
+
+  /* TIM2 TRGO selection */
+  TIM_SelectOutputTrigger(TIM2, TIM_TRGOSource_Update);
+
+  /* Enable TIM2 Update Interrupt*/ 
+  //TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+
+  NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+
+  /* Enable TIM2 */       
+  TIM_Cmd(TIM2,ENABLE);
 }
 
 /**
@@ -554,10 +715,10 @@ void Demo_GPIOConfig(void)
   GPIO_Init(GPIOG, &GPIO_InitStructure);
 
   /* Configure IDD_WAKEUP pin: PA.0 as input floating */
-  /*
-  GPIO_InitStructure.GPIO_Pin = IDD_WAKEUP_PIN;
-  GPIO_Init(IDD_WAKEUP_GPIO_PORT, &GPIO_InitStructure);
-  */
+
+  //GPIO_InitStructure.GPIO_Pin = IDD_WAKEUP_PIN;
+  //GPIO_Init(IDD_WAKEUP_GPIO_PORT, &GPIO_InitStructure);
+
 
   /* LEFT Button */
   SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOG, EXTI_PinSource6);
@@ -665,9 +826,14 @@ void Demo_LedShowInit(void)
   /* Time Base configuration 100ms*/
   TIM_TimeBaseStructure.TIM_Prescaler = 1000;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseStructure.TIM_Period = 0x0C80;
+  TIM_TimeBaseStructure.TIM_Period = 0x1900;  /* was 0x0C80*/
   TIM_TimeBaseStructure.TIM_ClockDivision = 0x0;
   TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+
+
+  /* TIM2 TRGO selection for ADC */
+  TIM_SelectOutputTrigger(TIM2, TIM_TRGOSource_Update);
+
 
   /* Channel 1, 2, 3 and 4 Configuration in Timing mode */
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;

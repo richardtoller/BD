@@ -1,12 +1,23 @@
 <!DOCTYPE CrossStudio_for_ARM_Session_File>
 <session>
- <Bookmarks/>
+ <Bookmarks>
+  <BookmarkItem column="0" line="804" path="/home/richard/BD/src/main.c" number="2" extra="/* Time Base configuration 100ms*/" name="unnamed" color="5" />
+  <BookmarkItem column="0" line="385" path="/home/richard/BD/src/main.c" number="1" extra="void TIM2_Config(void)" name="unnamed" color="5" />
+ </Bookmarks>
  <Breakpoints/>
  <ExecutionProfileWindow/>
- <Memory1/>
- <Memory2/>
- <Memory3/>
- <Memory4/>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bd" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bd" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bd" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bd" addressSpace="" />
+ </Memory4>
  <Project>
   <ProjectSessionItem path="bd" name="unnamed" />
   <ProjectSessionItem path="bd;bd" name="unnamed" />
@@ -15,16 +26,26 @@
   <ProjectSessionItem path="bd;bd;Source Files;User" name="unnamed" />
   <ProjectSessionItem path="bd;bd;Source Files;User;src" name="unnamed" />
  </Project>
- <Register1/>
- <Register2/>
- <Register3/>
- <Register4/>
+ <Register1>
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="bd" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="bd" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="bd" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="bd" />
+ </Register4>
  <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
  <TraceWindow>
   <Trace enabled="Yes" />
  </TraceWindow>
  <Watch1>
-  <Watches active="1" update="Never" />
+  <Watches active="1" update="Never" >
+   <Watchpoint linenumber="176" radix="-1" name="ADC_ConvertedValue" expression="ADC_ConvertedValue" filename="/home/richard/BD/src/main.c" />
+  </Watches>
  </Watch1>
  <Watch2>
   <Watches active="0" update="Never" />
@@ -36,12 +57,8 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/media/data_disk/STM32/BD/src/main.c" y="602" path="/media/data_disk/STM32/BD/src/main.c" left="0" selected="1" name="unnamed" top="579" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/home/richard/.rowley_associates_limited/CrossWorks for ARM/packages/targets/STM32/include/stm32l1xx.h" y="6308" path="/home/richard/.rowley_associates_limited/CrossWorks for ARM/packages/targets/STM32/include/stm32l1xx.h" left="0" selected="0" name="unnamed" top="6302" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/media/data_disk/STM32/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval.h" y="34" path="/media/data_disk/STM32/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval.h" left="0" selected="0" name="unnamed" top="4" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="15" debugPath="/media/data_disk/STM32/BD/inc/main.h" y="48" path="/media/data_disk/STM32/BD/inc/main.h" left="0" selected="0" name="unnamed" top="32" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="15" debugPath="/home/richard/BD/src/main.c" y="405" path="/home/richard/BD/src/main.c" left="0" selected="0" name="unnamed" top="389" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/home/richard/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_spi_ee.c" y="112" path="/home/richard/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_spi_ee.c" left="0" selected="0" name="unnamed" top="99" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/home/richard/BD/src/main.c" y="115" path="/home/richard/BD/src/main.c" left="0" selected="1" name="unnamed" top="86" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/home/richard/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_lcd.c" y="699" path="/home/richard/BD/Utilities/STM32_EVAL/STM32L152D_EVAL/stm32l152d_eval_lcd.c" left="0" selected="0" name="unnamed" top="655" />
  </Files>
- <ARMCrossStudioWindow activeProject="bd" autoConnectTarget="" debugSearchFileMap="" fileDialogInitialDirectory="/media/data_disk/STM32/BD/inc" fileDialogDefaultFilter="*.h" autoConnectCapabilities="0" debugSearchPath="" buildConfiguration="THUMB Debug" />
+ <ARMCrossStudioWindow activeProject="bd" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="" fileDialogInitialDirectory="/home/richard/BD/src" fileDialogDefaultFilter="*.c" autoConnectCapabilities="264063" debugSearchPath="" buildConfiguration="THUMB Debug" />
 </session>
