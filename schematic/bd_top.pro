@@ -1,4 +1,4 @@
-update=08/01/2013 15:24:15
+update=15/01/2013 12:51:26
 version=1
 last_client=eeschema
 [cvpcb]
@@ -142,3 +142,6 @@ LibName28=opto
 LibName29=atmel
 LibName30=contrib
 LibName31=valves
+LibName32=rt_connectors
+LibName33=rt_power_supplies
+LibName34=rt_passives

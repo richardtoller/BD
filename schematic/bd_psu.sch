@@ -1,4 +1,7 @@
-EESchema Schematic File Version 2  date Tuesday, 15 January 2013 22:02:56
+EESchema Schematic File Version 2  date 16/01/2013 15:22:48
+LIBS:aart_power_supplies
+LIBS:aart_connectors
+LIBS:aart_passives
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -25,21 +28,17 @@ LIBS:philips
 LIBS:display
 LIBS:cypress
 LIBS:siliconi
-LIBS:connectors
 LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:power_supplies
-LIBS:passives
-LIBS:bd_psu-cache
-EELAYER 27 0
+EELAYER 25  0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "15 jan 2013"
+Date "16 jan 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -47,6 +46,15 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L CPOL C?
+U 1 1 50F6C598
+P 8450 6200
+F 0 "C?" H 8600 6350 50  0000 L CNN
+F 1 "CPOL" H 8600 6250 50  0000 L CNN
+	1    8450 6200
+	1    0    0    -1  
+$EndComp
 $Comp
 L LTC4160 U?
 U 1 1 50F5B486
