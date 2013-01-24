@@ -1,4 +1,5 @@
-EESchema Schematic File Version 2  date Sat 19 Jan 2013 05:13:54 PM GMT
+EESchema Schematic File Version 2  date Thu 24 Jan 2013 06:08:02 PM GMT
+LIBS:aart_power_ports
 LIBS:aart_micros
 LIBS:aart_power_supplies
 LIBS:aart_connectors
@@ -35,11 +36,11 @@ LIBS:contrib
 LIBS:valves
 EELAYER 25  0
 EELAYER END
-$Descr A3 16535 11700
+$Descr A2 23400 16535
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "19 jan 2013"
+Date "24 jan 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -48,21 +49,21 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L STM32F405 U?
-U 1 1 50FAD235
-P 5400 4450
-F 0 "U?" H 4550 5250 60  0000 L CNN
-F 1 "STM32F405" H 4550 5150 60  0000 L CNN
-	1    5400 4450
+L +3V3D #3V3D?
+U 1 1 5101787B
+P 4300 4600
+F 0 "#3V3D?" H 4325 4530 50  0000 L CNN
+F 1 "+3V3D" H 4165 4665 50  0000 L CNN
+	1    4300 4600
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C1
-U 1 1 50F858EF
-P 4450 4600
-F 0 "C1" H 4500 4700 50  0000 L CNN
-F 1 "C" H 4500 4500 50  0000 L CNN
-	1    4450 4600
+L STM32F405ZG U?
+U 1 1 510173FC
+P 7500 3300
+F 0 "U?" H 7800 3600 60  0000 L CNN
+F 1 "STM32F405ZG" H 7800 3500 60  0000 L CNN
+	1    7500 3300
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
