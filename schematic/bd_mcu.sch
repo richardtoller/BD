@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 27 Jan 2013 03:45:48 PM GMT
+EESchema Schematic File Version 2  date 28/01/2013 12:58:48
 LIBS:aart_power_ports
 LIBS:aart_micros
 LIBS:aart_power_supplies
@@ -41,7 +41,7 @@ $Descr A2 23400 16535
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "25 jan 2013"
+Date "28 jan 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -49,6 +49,145 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Connection ~ 15450 11900
+Wire Wire Line
+	15250 11900 15450 11900
+Connection ~ 15450 11700
+Wire Wire Line
+	15250 11700 15450 11700
+Connection ~ 15450 11500
+Wire Wire Line
+	15250 11500 15450 11500
+Connection ~ 15450 11300
+Wire Wire Line
+	15250 11300 15450 11300
+Wire Wire Line
+	15250 11100 15450 11100
+Wire Wire Line
+	15450 11100 15450 11950
+Wire Wire Line
+	15250 4700 16200 4700
+Wire Wire Line
+	15250 4500 16200 4500
+Wire Wire Line
+	15250 4300 16200 4300
+Wire Wire Line
+	15250 4100 16200 4100
+Wire Wire Line
+	15250 4000 16200 4000
+Wire Wire Line
+	7500 9300 6400 9300
+Wire Wire Line
+	7500 9200 6400 9200
+Wire Wire Line
+	7500 8400 6400 8400
+Wire Wire Line
+	7500 9800 6400 9800
+Wire Wire Line
+	7500 8800 6400 8800
+Wire Wire Line
+	15250 3400 16200 3400
+Wire Wire Line
+	15250 3700 16200 3700
+Wire Wire Line
+	7500 9700 6400 9700
+Wire Wire Line
+	7500 9500 6400 9500
+Wire Wire Line
+	15250 7100 16200 7100
+Wire Wire Line
+	15250 6900 16200 6900
+Wire Wire Line
+	15250 6700 16200 6700
+Wire Wire Line
+	15250 6400 16200 6400
+Wire Wire Line
+	15250 6200 16200 6200
+Wire Wire Line
+	15250 5400 16200 5400
+Wire Wire Line
+	15250 5200 16200 5200
+Wire Wire Line
+	15250 5000 16200 5000
+Wire Wire Line
+	15250 5100 16200 5100
+Wire Wire Line
+	15250 5300 16200 5300
+Wire Wire Line
+	15250 5500 16200 5500
+Wire Wire Line
+	15250 6300 16200 6300
+Wire Wire Line
+	15250 6500 16200 6500
+Wire Wire Line
+	15250 6800 16200 6800
+Wire Wire Line
+	15250 7000 16200 7000
+Wire Wire Line
+	15250 7200 16200 7200
+Wire Wire Line
+	7500 9600 6400 9600
+Wire Wire Line
+	15250 3600 16200 3600
+Wire Wire Line
+	15250 3300 16200 3300
+Wire Wire Line
+	7500 8900 6400 8900
+Wire Wire Line
+	15250 7700 16200 7700
+Wire Wire Line
+	6400 9900 7500 9900
+Wire Wire Line
+	7500 8500 6400 8500
+Wire Wire Line
+	7500 9400 6400 9400
+Wire Wire Line
+	15250 4200 16200 4200
+Wire Wire Line
+	15250 4400 16200 4400
+Wire Wire Line
+	15250 4600 16200 4600
+Wire Wire Line
+	15250 4800 16200 4800
+Wire Wire Line
+	15250 11200 15450 11200
+Connection ~ 15450 11200
+Wire Wire Line
+	15250 11400 15450 11400
+Connection ~ 15450 11400
+Wire Wire Line
+	15250 11600 15450 11600
+Connection ~ 15450 11600
+Wire Wire Line
+	15250 11800 15450 11800
+Connection ~ 15450 11800
+$Comp
+L 0VD #0VD?
+U 1 1 510674AC
+P 15450 12100
+F 0 "#0VD?" H 15510 12215 50  0001 L CNN
+F 1 "0VD" H 15380 12040 50  0000 L CNN
+	1    15450 12100
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3D #3V3D?
+U 1 1 5106749A
+P 6700 11000
+F 0 "#3V3D?" H 6725 10930 50  0000 L CNN
+F 1 "+3V3D" H 6565 11065 50  0000 L CNN
+	1    6700 11000
+	1    0    0    -1  
+$EndComp
+$Comp
+L CRYSTAL X?
+U 1 1 510670E9
+P 17050 8650
+F 0 "X?" V 17100 8400 60  0000 C CNN
+F 1 "8MHz" V 16850 8350 60  0000 C CNN
+	1    17050 8650
+	0    -1   -1   0   
+$EndComp
 Text HLabel 16200 4800 2    60   BiDi ~ 0
 SRAM_D12
 Text HLabel 16200 4700 2    60   BiDi ~ 0
@@ -67,90 +206,6 @@ Text HLabel 16200 4100 2    60   BiDi ~ 0
 SRAM_D5
 Text HLabel 16200 4000 2    60   BiDi ~ 0
 SRAM_D4
-Wire Wire Line
-	15250 4800 16200 4800
-Wire Wire Line
-	15250 4600 16200 4600
-Wire Wire Line
-	15250 4400 16200 4400
-Wire Wire Line
-	15250 4200 16200 4200
-Wire Wire Line
-	7500 9400 6400 9400
-Wire Wire Line
-	7500 8500 6400 8500
-Wire Wire Line
-	6400 9900 7500 9900
-Wire Wire Line
-	15250 7700 16200 7700
-Wire Wire Line
-	7500 8900 6400 8900
-Wire Wire Line
-	15250 3300 16200 3300
-Wire Wire Line
-	15250 3600 16200 3600
-Wire Wire Line
-	7500 9600 6400 9600
-Wire Wire Line
-	15250 7200 16200 7200
-Wire Wire Line
-	15250 7000 16200 7000
-Wire Wire Line
-	15250 6800 16200 6800
-Wire Wire Line
-	15250 6500 16200 6500
-Wire Wire Line
-	15250 6300 16200 6300
-Wire Wire Line
-	15250 5500 16200 5500
-Wire Wire Line
-	15250 5300 16200 5300
-Wire Wire Line
-	15250 5100 16200 5100
-Wire Wire Line
-	15250 5000 16200 5000
-Wire Wire Line
-	15250 5200 16200 5200
-Wire Wire Line
-	15250 5400 16200 5400
-Wire Wire Line
-	15250 6200 16200 6200
-Wire Wire Line
-	15250 6400 16200 6400
-Wire Wire Line
-	15250 6700 16200 6700
-Wire Wire Line
-	15250 6900 16200 6900
-Wire Wire Line
-	15250 7100 16200 7100
-Wire Wire Line
-	7500 9500 6400 9500
-Wire Wire Line
-	7500 9700 6400 9700
-Wire Wire Line
-	15250 3700 16200 3700
-Wire Wire Line
-	15250 3400 16200 3400
-Wire Wire Line
-	7500 8800 6400 8800
-Wire Wire Line
-	7500 9800 6400 9800
-Wire Wire Line
-	7500 8400 6400 8400
-Wire Wire Line
-	7500 9200 6400 9200
-Wire Wire Line
-	7500 9300 6400 9300
-Wire Wire Line
-	15250 4000 16200 4000
-Wire Wire Line
-	15250 4100 16200 4100
-Wire Wire Line
-	15250 4300 16200 4300
-Wire Wire Line
-	15250 4500 16200 4500
-Wire Wire Line
-	15250 4700 16200 4700
 Text HLabel 6400 9400 0    60   BiDi ~ 0
 SRAM_D15
 Text HLabel 6400 9300 0    60   BiDi ~ 0
@@ -217,15 +272,6 @@ Text HLabel 16200 5100 2    60   Output ~ 0
 SRAM_A1
 Text HLabel 16200 5000 2    60   Output ~ 0
 SRAM_A0
-$Comp
-L +3V3D #3V3D?
-U 1 1 5101787B
-P 4300 4600
-F 0 "#3V3D?" H 4325 4530 50  0001 L CNN
-F 1 "+3V3D" H 4165 4665 50  0000 L CNN
-	1    4300 4600
-	1    0    0    -1  
-$EndComp
 $Comp
 L STM32F405ZG U?
 U 1 1 510173FC
