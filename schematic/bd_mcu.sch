@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 29/01/2013 17:11:12
+EESchema Schematic File Version 2  date Tuesday, 29 January 2013 20:26:49
 LIBS:aart_power_ports
 LIBS:aart_micros
 LIBS:aart_power_supplies
@@ -35,9 +35,9 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:bd_mcu-cache
-EELAYER 25  0
+EELAYER 27 0
 EELAYER END
-$Descr A2 23400 16535
+$Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
 Title ""
