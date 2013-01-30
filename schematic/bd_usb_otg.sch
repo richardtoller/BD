@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Tuesday, 29 January 2013 21:27:28
+EESchema Schematic File Version 2  date 30/01/2013 13:12:58
 LIBS:aart_connectors
 LIBS:aart_micros
 LIBS:aart_passives
@@ -34,13 +34,13 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-EELAYER 27 0
+EELAYER 25  0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "29 jan 2013"
+Date "30 jan 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -61,8 +61,8 @@ $Comp
 L VBUS053AZ-HAF IC?
 U 1 1 5108343E
 P 11300 4850
-F 0 "IC?" H 11300 5000 60  0000 C CNN
-F 1 "VBUS053AZ-HAF" H 11300 4700 60  0000 C CNN
+F 0 "IC?" H 11450 5200 60  0000 C CNN
+F 1 "VBUS053AZ-HAF" H 11750 5300 60  0000 C CNN
 	1    11300 4850
 	1    0    0    -1  
 $EndComp
