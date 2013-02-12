@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Thursday, 17 January 2013 20:16:58
+EESchema Schematic File Version 2  date 12/02/2013 16:45:36
 LIBS:aart_power_supplies
 LIBS:aart_connectors
 LIBS:aart_passives
@@ -33,13 +33,13 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:bd_psu-cache
-EELAYER 27 0
+EELAYER 25  0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "17 jan 2013"
+Date "12 feb 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -48,12 +48,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L LTC4160 U1
-U 1 1 50F5B486
-P 6400 4150
-F 0 "U1" H 6700 4450 60  0000 L CNN
-F 1 "LTC4160" H 6700 4350 60  0000 L CNN
-	1    6400 4150
+L LTC3538 U?
+U 1 1 511A3F6B
+P 8800 4500
+F 0 "U?" H 8800 4650 60  0000 L CNN
+F 1 "LTC3538" H 8800 4550 60  0000 L CNN
+	1    8800 4500
 	1    0    0    -1  
 $EndComp
 $Comp
