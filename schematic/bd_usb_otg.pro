@@ -1,8 +1,8 @@
-update=28/01/2013 12:37:50
+update=Wed 13 Feb 2013 05:34:14 PM GMT
 last_client=eeschema
 [eeschema]
 version=1
-LibDir=../../kicad_library
+LibDir=
 NetFmt=1
 HPGLSpd=20
 HPGLDm=15
