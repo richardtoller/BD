@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 12/02/2013 10:52:28
+EESchema Schematic File Version 2  date 13/02/2013 13:22:20
 LIBS:aart_connectors
 LIBS:aart_micros
 LIBS:aart_passives
@@ -42,7 +42,7 @@ $Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "12 feb 2013"
+Date "13 feb 2013"
 Rev ""
 Comp ""
 Comment1 ""
