@@ -1,4 +1,4 @@
-update=28/01/2013 12:37:50
+update=14/02/2013 07:46:11
 last_client=eeschema
 [eeschema]
 version=1
@@ -38,3 +38,4 @@ LibName3=../../kicad_library/schematic/aart_passives
 LibName4=../../kicad_library/schematic/aart_power_ports
 LibName5=../../kicad_library/schematic/aart_power_supplies
 LibName6=../../kicad_library/schematic/aart_transistors
+LibName7=../../kicad_library/schematic/aart_memories
