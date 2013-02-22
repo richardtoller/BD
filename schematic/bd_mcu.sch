@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 14/02/2013 07:51:00
+EESchema Schematic File Version 2  date 22/02/2013 13:27:21
 LIBS:aart_connectors
 LIBS:aart_micros
 LIBS:aart_passives
@@ -13,7 +13,7 @@ $Descr A2 23400 16535
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "14 feb 2013"
+Date "22 feb 2013"
 Rev ""
 Comp ""
 Comment1 ""
@@ -21,6 +21,16 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L R1LV1616R U?
+U 1 1 51273732
+P 17500 6600
+F 0 "U?" H 17800 6900 60  0000 L CNN
+F 1 "R1LV1616R" H 17800 6800 60  0000 L CNN
+F 3 "http://documentation.renesas.com/doc/products/memory/rej03c0101_r1lv1616r.pdf" H 18700 7050 60  0001 C CNN
+	1    17500 6600
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	2900 10300 2900 10100
 Wire Wire Line

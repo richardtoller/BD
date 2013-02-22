@@ -23,11 +23,11 @@ RptLab=1
 LabSize=60
 [eeschema/libraries]
 LibName1=../../kicad_library/schematic/aart_connectors
-LibName2=../../richard/kicad_library/schematic/aart_micros
-LibName3=../../richard/kicad_library/schematic/aart_passives
-LibName4=../../richard/kicad_library/schematic/aart_power_ports
-LibName5=../../richard/kicad_library/schematic/aart_power_supplies
-LibName6=../../richard/kicad_library/schematic/aart_transistors
+LibName2=../../kicad_library/schematic/aart_micros
+LibName3=../../kicad_library/schematic/aart_passives
+LibName4=../../kicad_library/schematic/aart_power_ports
+LibName5=../../kicad_library/schematic/aart_power_supplies
+LibName6=../../kicad_library/schematic/aart_transistors
 [pcbnew]
 version=1
 LastNetListRead=bd_psu.net
