@@ -1,4 +1,4 @@
-update=14/02/2013 07:46:11
+update=25/02/2013 13:11:23
 last_client=eeschema
 [eeschema]
 version=1
@@ -39,3 +39,4 @@ LibName4=../../kicad_library/schematic/aart_power_ports
 LibName5=../../kicad_library/schematic/aart_power_supplies
 LibName6=../../kicad_library/schematic/aart_transistors
 LibName7=../../kicad_library/schematic/aart_memories
+LibName8=schematic/aart_opto
