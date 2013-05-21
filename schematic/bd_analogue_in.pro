@@ -1,4 +1,4 @@
-update=25/02/2013 16:12:46
+update=21/05/2013 12:54:28
 last_client=eeschema
 [eeschema]
 version=1
@@ -40,4 +40,5 @@ LibName5=../../kicad_library/schematic/aart_passives
 LibName6=../../kicad_library/schematic/aart_power_ports
 LibName7=../../kicad_library/schematic/aart_power_supplies
 LibName8=../../kicad_library/schematic/aart_transistors
-LibName9=linear_tech
+LibName9=U:/designs/kicad_library/schematic/aart_microphones
+LibName10=U:/designs/kicad_library/schematic/aart_op_amps
