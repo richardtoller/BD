@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 21/05/2013 13:00:00
+EESchema Schematic File Version 2  date 22/05/2013 16:07:35
 LIBS:aart_connectors
 LIBS:aart_memories
 LIBS:aart_micros
