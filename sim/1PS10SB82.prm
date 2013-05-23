@@ -1,0 +1,62 @@
+*
+*******************************************
+*
+*1PS10SB82
+*
+*NXP Semiconductors
+*
+*Schottky barrier diode
+*
+*
+*
+*
+*IFSM =     @ tp = 
+*VF = 700mV @ IF = 30mA
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*Package pinning does not match Spice model pinning.
+*Package: SOD882
+*
+*Package Pin 1 : Cathode 
+*Package Pin 2 : Anode
+* 
+* 
+*
+*
+*Simulator: PSPICE
+*
+*******************************************
+*#
+.SUBCKT 1PS10SB82 1 2 
+*
+* The resistor R1 does not reflect 
+* a physical device. Instead it
+* improves modeling in the reverse 
+* mode of operation.
+*
+R1 1 2 3E+7 
+D1 1 2 1PS10SB82
+*
+.MODEL 1PS10SB82 D 
++ IS = 1.042E-8 
++ N = 1.029 
++ BV = 17 
++ IBV = 0.001 
++ RS = 5.567 
++ CJO = 9.779E-13 
++ VJ = 0.2925 
++ M = 0.194 
++ FC = 0.5 
++ EG = 0.69 
++ XTI = 2 
+.ENDS
+*
+
